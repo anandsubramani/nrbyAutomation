@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Createregion" parallel="false">
+	<!-- Automation Id : 5fb92cf9b366fad971bf0119a279057f -->
+	<test name="CreateRegionTest">
+		<classes>
+			<class name="com.nrby.ui.regions.CreateRegionTest" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="false">
+
+	<listeners>
+		<listener class-name="com.nrby.ui.util.ScreenShotOnFailureListener" />
+	</listeners>
+	<parameter name="nrbyUrl" value="https://qatest.ping4inc.com" />
+	<parameter name="userName" value="anand@nrby.com" />
+	<parameter name="password" value="Tera@1234" />
+	<parameter name="dataFile" value="testData/testData.xls" />
+
+	<suite-files>
+
+		<suite-file path="/suites/CreateRegionTest.xml" />
+
+	</suite-files>
+
+</suite> <!-- Suite -->
