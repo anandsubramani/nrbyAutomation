@@ -16,6 +16,7 @@
     <artifactId>nrByautomation</artifactId>
   </rootModule>
   <rootPOM>/home/mani/Videos/nrByautomation/pom.xml</rootPOM>
+  <goals>install test</goals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
   <ignoreUpstremChanges>false</ignoreUpstremChanges>
@@ -31,7 +32,47 @@
   <settings class="jenkins.mvn.DefaultSettingsProvider"/>
   <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
   <reporters/>
-  <publishers/>
+  <publishers>
+    <hudson.tasks.test.AggregatedTestResultPublisher plugin="junit@1.11">
+      <includeFailedBuilds>true</includeFailedBuilds>
+    </hudson.tasks.test.AggregatedTestResultPublisher>
+    <hudson.plugins.testng.Publisher plugin="testng-plugin@1.10">
+      <reportFilenamePattern>**/index.html</reportFilenamePattern>
+      <escapeTestDescp>true</escapeTestDescp>
+      <escapeExceptionMsg>true</escapeExceptionMsg>
+      <showFailedBuilds>false</showFailedBuilds>
+      <unstableOnSkippedTests>false</unstableOnSkippedTests>
+      <failureOnFailedTestConfig>false</failureOnFailedTestConfig>
+    </hudson.plugins.testng.Publisher>
+    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.41.3">
+      <recipientList></recipientList>
+      <configuredTriggers>
+        <hudson.plugins.emailext.plugins.trigger.AlwaysTrigger>
+          <email>
+            <recipientList>nataraj.kailasam@ping4.com</recipientList>
+            <subject>E-mail from Jenkins</subject>
+            <body>Your status of current automation run is attached here. Extract reports.zip and refer index.html file for entire status of all the tests. </body>
+            <recipientProviders/>
+            <attachmentsPattern>**/reports.zip</attachmentsPattern>
+            <attachBuildLog>false</attachBuildLog>
+            <compressBuildLog>false</compressBuildLog>
+            <replyTo>$PROJECT_DEFAULT_REPLYTO</replyTo>
+            <contentType>text/html</contentType>
+          </email>
+        </hudson.plugins.emailext.plugins.trigger.AlwaysTrigger>
+      </configuredTriggers>
+      <contentType>text/html</contentType>
+      <defaultSubject></defaultSubject>
+      <defaultContent></defaultContent>
+      <attachmentsPattern></attachmentsPattern>
+      <presendScript>$DEFAULT_PRESEND_SCRIPT</presendScript>
+      <attachBuildLog>true</attachBuildLog>
+      <compressBuildLog>false</compressBuildLog>
+      <replyTo>$DEFAULT_REPLYTO</replyTo>
+      <saveOutput>false</saveOutput>
+      <disabled>false</disabled>
+    </hudson.plugins.emailext.ExtendedEmailPublisher>
+  </publishers>
   <buildWrappers/>
   <prebuilders/>
   <postbuilders/>
