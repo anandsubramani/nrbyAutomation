@@ -15,7 +15,7 @@
     <groupId>com.tera</groupId>
     <artifactId>nrByautomation</artifactId>
   </rootModule>
-  <rootPOM>/home/mani/Videos/nrByautomation/pom.xml</rootPOM>
+  <rootPOM>/home/mravi/nrbyAutomation/pom.xml</rootPOM>
   <goals>install test</goals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
