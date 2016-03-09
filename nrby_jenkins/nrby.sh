@@ -1,16 +1,15 @@
 #!/bin/bash
-echo Before proceeding please update rootPOM path in nrby_automation.xml file
-echo Enter Project directory path : "$ppath"
+echo Please provide your Project directory : "$ppath"
 read ppath
-echo Enter nrby_automation.xml path: "$xmlpath"
+echo Please provide nrby_automation.xml path: "$xmlpath"
 read xmlpath
 cd $xmlpath
-echo Enter the Jenkins Job name(Any): "$jobname"
+echo Please enter the Job name: "$jobname"
 read jobname
-echo Please enter the Host name[eg:http://208.78.110.81:8080/]: "$hostname"
+echo Please enter the Host name[eg:http://10.6.5.13:8080/]: "$hostname"
 read hostname
 java -jar jenkins-cli.jar -s $hostname create-job $jobname < nrby_automation.xml
-echo Jenkins Job created successfully.
+echo Job created successfully
 file="$ppath/target/surefire-reports/"
 cd $file
 rm -f index.html
