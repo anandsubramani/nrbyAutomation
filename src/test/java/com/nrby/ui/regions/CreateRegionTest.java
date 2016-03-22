@@ -84,6 +84,7 @@ public class CreateRegionTest {
 		webDriver.findElement(By.xpath("//div[7]/div[2]/input")).clear();
 		webDriver.findElement(By.xpath("//div[7]/div[2]/input")).sendKeys(
 				zoneTag);
+		webDriver.findElement(By.xpath("//div[8]/div/button")).click();
 	}
 
 	@DataProvider
