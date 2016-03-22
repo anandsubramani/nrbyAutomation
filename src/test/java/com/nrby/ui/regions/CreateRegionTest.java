@@ -9,9 +9,7 @@ import jxl.Workbook;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -48,92 +46,44 @@ public class CreateRegionTest {
 	public void login() throws Exception {
 		webDriver.get(nrbyUrl + "/");
 		Thread.sleep(1000);
-
-		webDriver.findElement(By.xpath("//*[@name='user[email]']")).clear();
-		Thread.sleep(500);
-		webDriver.findElement(By.xpath("//*[@name='user[email]']")).sendKeys(
-				this.userName);
-		Thread.sleep(500);
-		webDriver.findElement(By.xpath("//*[@name='user[password]']")).clear();
-		Thread.sleep(500);
-		webDriver.findElement(By.xpath("//*[@name='user[password]']"))
-				.sendKeys(this.password);
-		Thread.sleep(500);
-		webDriver.findElement(By.xpath("//*[@class='btn btn-primary']"))
-				.click();
-
+		webDriver.findElement(By.xpath("//div/input")).clear();
+		webDriver.findElement(By.xpath("//div/input")).sendKeys(this.userName);
+		webDriver.findElement(By.xpath("//section[2]/div/input")).clear();
+		webDriver.findElement(By.xpath("//section[2]/div/input")).sendKeys(
+				this.password);
+		webDriver.findElement(By.xpath("//section/input")).click();
+		Thread.sleep(2000);
 	}
 
-	// Creating a zone folder and creating a zone under a sub folder
+	// Creating zone
 	@Test(dataProvider = "getData")
-	public void testCreateRegion(String ContName, String Tags, String RegName,
-			String Location, String Address, String Radius) throws Exception {
-		webDriver.findElement(By.xpath("//*[@id='new_region_container']"))
-				.click(); // Create new Parent folder
-		Thread.sleep(2000);
-		webDriver
-				.findElement(
-						By.xpath("/html/body/div[1]/div/div/div[2]/div/div/form/div[3]/div[1]/div/input"))
-				.sendKeys(ContName); // Provide name for new folder
+	public void testCreateRegion(CharSequence zoneName,
+			CharSequence zoneAddress, CharSequence zoneRadius,
+			CharSequence zoneLatitude, CharSequence zoneLongitude,
+			CharSequence zoneDescription, CharSequence zoneTag)
+			throws Exception {
+		webDriver.findElement(By.xpath("//button[3]")).click();
 		Thread.sleep(500);
-		webDriver.findElement(
-				By.xpath("//*[@id='region_container_tags_as_strings']"))
-				.sendKeys(Tags); // Provide name for Tag
-		Thread.sleep(500);
-		webDriver
-				.findElement(
-						By.xpath("/html/body/div[1]/div/div/div[2]/div/div/form/div[4]/input"))
-				.click(); // Click Create button
-		Thread.sleep(4000);
-		webDriver.findElement(By.xpath("//*[@id='new_region_container']"))
-				.click(); // Again Create new folder, but this will be child
-							// folder
-		Thread.sleep(2000);
-		webDriver
-				.findElement(
-						By.xpath("/html/body/div[1]/div/div/div[2]/div/div/form/div[3]/div[1]/div/input"))
-				.sendKeys(RegName); // Provide name for new folder
-		Thread.sleep(500);
-		WebElement mySelectElm = webDriver.findElement(By
-				.xpath("//*[@id='region_container_region_container_id']")); // Select
-																			// the
-																			// Parent
-																			// folder
-																			// name
-																			// from
-																			// Dropdown
-		Select mySelect = new Select(mySelectElm);
-		mySelect.selectByVisibleText(ContName);
+		webDriver.findElement(By.xpath("//button[2]")).click();
 		Thread.sleep(1000);
-		webDriver
-				.findElement(
-						By.xpath("/html/body/div[1]/div/div/div[2]/div/div/form/div[4]/input"))
-				.click(); // Create folder
-		Thread.sleep(5000);
-		webDriver.findElement(By.xpath("//*[@id='new_region']")).click(); // Create
-																			// new
-																			// region
-		Thread.sleep(3000);
-		webDriver.findElement(By.xpath("//*[@id='address_to_find']")).sendKeys(
-				Location); // Provide location name to lookup
-		Thread.sleep(500);
-		webDriver
-				.findElement(
-						By.xpath("/html/body/div/div/div/section[2]/div/div[2]/div/input[2]"))
-				.click(); // Click lookup button
-		Thread.sleep(1000);
-		webDriver.findElement(By.xpath("//*[@id='region_name']")).sendKeys(
-				RegName); // Provide zone name
-		Thread.sleep(500);
-		WebElement mySelectElm1 = webDriver.findElement(By
-				.xpath("//*[@id='region_region_container_id']")); // Select any folder name that we created earlier
-		Select mySelect1 = new Select(mySelectElm1);
-		mySelect1.selectByVisibleText(ContName);
-		webDriver
-				.findElement(
-						By.xpath("/html/body/div/div/div/section[2]/div/div[1]/div/form/div[10]/input"))
-				.click(); // Create button
-		Thread.sleep(1000);
+		webDriver.findElement(By.xpath("//div/input")).clear();
+		webDriver.findElement(By.xpath("//div/input")).sendKeys(zoneName);
+		webDriver.findElement(By.xpath("//div[2]/input")).clear();
+		webDriver.findElement(By.xpath("//div[2]/input")).sendKeys(zoneAddress);
+		webDriver.findElement(By.xpath("//div[2]/div[2]/input")).clear();
+		webDriver.findElement(By.xpath("//div[2]/div[2]/input")).sendKeys(
+				zoneRadius);
+		webDriver.findElement(By.xpath("//div[3]/div[2]/input")).clear();
+		webDriver.findElement(By.xpath("//div[3]/div[2]/input")).sendKeys(
+				zoneLatitude);
+		webDriver.findElement(By.xpath("//div[4]/div[2]/input")).clear();
+		webDriver.findElement(By.xpath("//div[4]/div[2]/input")).sendKeys(
+				zoneLongitude);
+		webDriver.findElement(By.xpath("//textarea")).clear();
+		webDriver.findElement(By.xpath("//textarea")).sendKeys(zoneDescription);
+		webDriver.findElement(By.xpath("//div[7]/div[2]/input")).clear();
+		webDriver.findElement(By.xpath("//div[7]/div[2]/input")).sendKeys(
+				zoneTag);
 	}
 
 	@DataProvider
