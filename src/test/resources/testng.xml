@@ -11,7 +11,7 @@
 	<parameter name="dataFile" value="testData/testData.xls" />
 
 	<suite-files>
-
+		<suite-file path="/suites/HomePageTest.xml" />
 		<suite-file path="/suites/CreateRegionTest.xml" />
 
 	</suite-files>
