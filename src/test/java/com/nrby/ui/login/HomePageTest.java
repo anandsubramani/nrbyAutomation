@@ -43,8 +43,12 @@ public class HomePageTest {
 		webDriver.get(nrbyUrl + "/");
 		boolean b1 = webDriver.findElement(By.xpath("//label")).getText()
 				.contentEquals("email");
-		Assert.assertEquals("Label Email exists", true, b1);
-		logger.info("Label Email exists passed");
+		if (b1 == false) {
+			logger.info("Label Email exists Failed");
+			Assert.assertEquals("Label Email exists", false, b1);
+		} else {
+			logger.info("Label Email exists passed");
+		}
 	}
 
 	@Test()
