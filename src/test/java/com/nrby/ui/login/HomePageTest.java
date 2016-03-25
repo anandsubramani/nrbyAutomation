@@ -41,87 +41,169 @@ public class HomePageTest {
 	@Test()
 	public void testEmailLabel() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		boolean b1 = webDriver.findElement(By.xpath("//label")).getText()
-				.contentEquals("email");
-		if (b1 == false) {
+		try {
+			boolean b1 = webDriver.findElement(By.xpath("//label")).getText()
+					.contentEquals("email");
+			if (b1 == false) {
+				logger.info("Label Email exists Failed");
+				Assert.assertEquals("Label Email exists", true, b1);
+			} else {
+				logger.info("Label Email exists passed");
+			}
+		} catch (Exception e) {
 			logger.info("Label Email exists Failed");
-			Assert.assertEquals("Label Email exists", false, b1);
-		} else {
-			logger.info("Label Email exists passed");
+			Assert.assertEquals("Label Email exists", true, false);
 		}
 	}
 
 	@Test()
 	public void testPasswordLabel() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		boolean b2 = webDriver.findElement(By.xpath("//section[2]/label"))
-				.getText().contentEquals("password");
-		Assert.assertEquals("Label Password exists", true, b2);
-		logger.info("Label Password exists passed");
+		try {
+			boolean b2 = webDriver.findElement(By.xpath("//section[2]/label"))
+					.getText().contentEquals("password");
+			if (b2 == false) {
+				logger.info("Label Password exists Failed");
+				Assert.assertEquals("Label Password exists", true, b2);
+			} else {
+				logger.info("Label Password exists passed");
+			}
+		} catch (Exception e) {
+			logger.info("Label Password exists Failed");
+			Assert.assertEquals("Label Password exists", true, false);
+		}
 	}
 
 	@Test()
 	public void testRememberMeText() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		boolean b3 = webDriver.findElement(By.xpath("//div/label")).getText()
-				.contentEquals("remember me");
-		Assert.assertEquals("Label Remember me exists", true, b3);
-		logger.info("Label Remember me exists passed");
+		try {
+			boolean b3 = webDriver.findElement(By.xpath("//div/label"))
+					.getText().contentEquals("remember me");
+			if (b3 == false) {
+				logger.info("Label Remember me exists Failed");
+				Assert.assertEquals("Label Remember me exists", true, b3);
+			} else {
+				logger.info("Label Remember me exists passed");
+			}
+		} catch (Exception e) {
+			logger.info("Label Remember me exists Failed");
+			Assert.assertEquals("Label Remember me exists", true, false);
+		}
 	}
 
 	@Test()
 	public void testDisplayRememberMeCheckbox() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		boolean b4 = webDriver.findElement(By.xpath("//input[2]"))
-				.isDisplayed();
-		Assert.assertEquals("Remember me checkbox displayed", true, b4);
-		logger.info("Remember me checkbox displayed passed");
+		try {
+			boolean b4 = webDriver.findElement(By.xpath("//input[2]"))
+					.isDisplayed();
+			if (b4 == false) {
+				logger.info("Remember me checkbox displayed Failed");
+				Assert.assertEquals("Remember me checkbox displayed", true, b4);
+			} else {
+				logger.info("Remember me checkbox displayed passed");
+			}
+		} catch (Exception e) {
+			logger.info("Remember me checkbox displayed Failed");
+			Assert.assertEquals("Remember me checkbox displayed", true, false);
+		}
 	}
 
 	@Test()
 	public void testLoginButton() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		boolean b5 = webDriver.findElement(By.xpath("//section/input"))
-				.isDisplayed();
-		Assert.assertEquals("Login Button display", true, b5);
-		logger.info("Login Button displayed passed");
+		try {
+			boolean b5 = webDriver.findElement(By.xpath("//section/input"))
+					.isDisplayed();
+			if (b5 == false) {
+				logger.info("Login Button displayed Failed");
+				Assert.assertEquals("Login Button display", true, b5);
+			} else {
+				logger.info("Login Button displayed passed");
+			}
+		} catch (Exception e) {
+			logger.info("Login Button displayed Failed");
+			Assert.assertEquals("Login Button display", true, false);
+		}
 	}
 
 	@Test()
 	public void testForgotPasswordText() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		boolean b6 = webDriver.findElement(By.xpath("//a")).getText()
-				.contentEquals("Forgot your password?");
-		Assert.assertEquals("Forgot your password: text display", true, b6);
-		logger.info("Forgot your password: text display passed");
+		try {
+			boolean b6 = webDriver.findElement(By.xpath("//a")).getText()
+					.contentEquals("Forgot your password?");
+			if (b6 == false) {
+				logger.info("Forgot your password: text display Failed");
+				Assert.assertEquals("Forgot your password: text display", true,
+						b6);
+			} else {
+				logger.info("Forgot your password: text display passed");
+			}
+		} catch (Exception e) {
+			logger.info("Forgot your password: text display Failed");
+			Assert.assertEquals("Forgot your password: text display", true,
+					false);
+		}
 	}
 
 	@Test()
 	public void testDidntRcvConfirmationText() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		boolean b7 = webDriver.findElement(By.xpath("//a[2]")).getText()
-				.contentEquals("Didn't receive confirmation instructions?");
-		Assert.assertEquals(
-				"Didn't receive confirmation instructions: text display", true,
-				b7);
-		logger.info("Didn't receive confirmation instructions: text display passed");
+		try {
+			boolean b7 = webDriver.findElement(By.xpath("//a[2]")).getText()
+					.contentEquals("Didn't receive confirmation instructions?");
+			if (b7 == false) {
+				logger.info("Didn't receive confirmation instructions: text display Failed");
+				Assert.assertEquals(
+						"Didn't receive confirmation instructions: text display",
+						true, b7);
+			} else {
+				logger.info("Didn't receive confirmation instructions: text display passed");
+			}
+		} catch (Exception e) {
+			logger.info("Didn't receive confirmation instructions: text display Failed");
+			Assert.assertEquals(
+					"Didn't receive confirmation instructions: text display",
+					true, false);
+		}
 	}
 
 	@Test()
 	public void testEmailTextField() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		boolean b8 = (webDriver.findElements(By.xpath("//div/input")).size() != 0);
-		Assert.assertEquals("Email Text Field display", true, b8);
-		logger.info("Email Text Field display passed");
+		try {
+			boolean b8 = (webDriver.findElements(By.xpath("//div/input"))
+					.size() != 0);
+			if (b8 == false) {
+				logger.info("Email Text Field display Failed");
+				Assert.assertEquals("Email Text Field display", true, b8);
+			} else {
+				logger.info("Email Text Field display passed");
+			}
+		} catch (Exception e) {
+			logger.info("Email Text Field display Failed");
+			Assert.assertEquals("Email Text Field display", true, false);
+		}
 	}
 
 	@Test()
 	public void testPasswordTextField() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		boolean b9 = (webDriver
-				.findElements(By.xpath("//section[2]/div/input")).size() != 0);
-		Assert.assertEquals("Password Text Field display", true, b9);
-		logger.info("Password Text Field display passed");
+		try {
+			boolean b9 = (webDriver.findElements(
+					By.xpath("//section[2]/div/input")).size() != 0);
+			if (b9 == false) {
+				logger.info("Password Text Field display Failed");
+				Assert.assertEquals("Password Text Field display", true, b9);
+			} else {
+				logger.info("Password Text Field display passed");
+			}
+		} catch (Exception e) {
+			logger.info("Password Text Field display Failed");
+			Assert.assertEquals("Password Text Field display", true, false);
+		}
 	}
 
 	@SuppressWarnings("static-access")
