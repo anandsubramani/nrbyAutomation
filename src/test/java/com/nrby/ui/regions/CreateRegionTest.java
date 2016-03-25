@@ -7,6 +7,7 @@ import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,7 +20,7 @@ import org.testng.annotations.Test;
 import com.nrby.ui.util.AppContext;
 
 public class CreateRegionTest {
-
+	private static Logger logger = Logger.getLogger("CreateRegionTest");
 	private String nrbyUrl;
 	private String userName;
 	private String password;
@@ -57,11 +58,9 @@ public class CreateRegionTest {
 
 	// Creating zone
 	@Test(dataProvider = "getData")
-	public void testCreateRegion(CharSequence zoneName,
-			CharSequence zoneAddress, CharSequence zoneRadius,
-			CharSequence zoneLatitude, CharSequence zoneLongitude,
-			CharSequence zoneDescription, CharSequence zoneTag)
-			throws Exception {
+	public void testCreateRegion(String zoneName, String zoneAddress,
+			String zoneRadius, String zoneLatitude, String zoneLongitude,
+			String zoneDescription, String zoneTag) throws Exception {
 		webDriver.findElement(By.xpath("//button[3]")).click();
 		Thread.sleep(500);
 		webDriver.findElement(By.xpath("//button[2]")).click();
@@ -85,6 +84,8 @@ public class CreateRegionTest {
 		webDriver.findElement(By.xpath("//div[7]/div[2]/input")).sendKeys(
 				zoneTag);
 		webDriver.findElement(By.xpath("//div[8]/div/button")).click();
+		Thread.sleep(500);
+		logger.info("Zone creation passed");
 	}
 
 	@DataProvider

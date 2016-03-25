@@ -1,13 +1,13 @@
 package com.nrby.ui.login;
 
 import java.io.InputStream;
-import org.apache.log4j.Logger;
 
 import junit.framework.Assert;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -20,9 +20,7 @@ import com.nrby.ui.util.AppContext;
 
 @SuppressWarnings("deprecation")
 public class HomePageTest {
-
-	private static Logger logger = Logger.getRootLogger();
-
+	private static Logger logger = Logger.getLogger("HomePageTest");
 	private String nrbyUrl;
 	private WebDriver webDriver;
 	private static final String ESCAPE_PROPERTY = "org.uncommons.reportng.escape-output";
@@ -30,6 +28,7 @@ public class HomePageTest {
 	@BeforeClass
 	@Parameters({ "nrbyUrl" })
 	public void beforeClass(String nrbyUrl) throws Exception {
+		logger.info("Automation Nrby Started");
 		this.nrbyUrl = nrbyUrl;
 		webDriver = new FirefoxDriver();
 		webDriver.manage().window().maximize();
@@ -42,84 +41,83 @@ public class HomePageTest {
 	@Test()
 	public void testEmailLabel() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		logger.info("testEmailLabel starts...");
 		boolean b1 = webDriver.findElement(By.xpath("//label")).getText()
 				.contentEquals("email");
 		Assert.assertEquals("Label Email exists", true, b1);
-		logger.info("testEmailLabel ends...");
+		logger.info("Label Email exists passed");
 	}
 
 	@Test()
 	public void testPasswordLabel() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		logger.info("Test case starts...");
 		boolean b2 = webDriver.findElement(By.xpath("//section[2]/label"))
 				.getText().contentEquals("password");
 		Assert.assertEquals("Label Password exists", true, b2);
+		logger.info("Label Password exists passed");
 	}
 
 	@Test()
 	public void testRememberMeText() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		logger.info("Test case starts...");
 		boolean b3 = webDriver.findElement(By.xpath("//div/label")).getText()
 				.contentEquals("remember me");
 		Assert.assertEquals("Label Remember me exists", true, b3);
+		logger.info("Label Remember me exists passed");
 	}
 
 	@Test()
 	public void testDisplayRememberMeCheckbox() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		logger.info("Test case starts...");
 		boolean b4 = webDriver.findElement(By.xpath("//input[2]"))
 				.isDisplayed();
 		Assert.assertEquals("Remember me checkbox displayed", true, b4);
+		logger.info("Remember me checkbox displayed passed");
 	}
 
 	@Test()
 	public void testLoginButton() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		logger.info("Test case starts...");
 		boolean b5 = webDriver.findElement(By.xpath("//section/input"))
 				.isDisplayed();
-		Assert.assertEquals("Login Button displayed", true, b5);
+		Assert.assertEquals("Login Button display", true, b5);
+		logger.info("Login Button displayed passed");
 	}
 
 	@Test()
 	public void testForgotPasswordText() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		logger.info("Test case starts...");
 		boolean b6 = webDriver.findElement(By.xpath("//a")).getText()
 				.contentEquals("Forgot your password?");
 		Assert.assertEquals("Forgot your password: text display", true, b6);
+		logger.info("Forgot your password: text display passed");
 	}
 
 	@Test()
 	public void testDidntRcvConfirmationText() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		logger.info("Test case starts...");
 		boolean b7 = webDriver.findElement(By.xpath("//a[2]")).getText()
 				.contentEquals("Didn't receive confirmation instructions?");
 		Assert.assertEquals(
 				"Didn't receive confirmation instructions: text display", true,
 				b7);
+		logger.info("Didn't receive confirmation instructions: text display passed");
 	}
 
 	@Test()
 	public void testEmailTextField() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		logger.info("Test case starts...");
 		boolean b8 = (webDriver.findElements(By.xpath("//div/input")).size() != 0);
 		Assert.assertEquals("Email Text Field display", true, b8);
+		logger.info("Email Text Field display passed");
 	}
 
 	@Test()
 	public void testPasswordTextField() throws Exception {
 		webDriver.get(nrbyUrl + "/");
-		logger.info("Test case starts...");
 		boolean b9 = (webDriver
 				.findElements(By.xpath("//section[2]/div/input")).size() != 0);
 		Assert.assertEquals("Password Text Field display", true, b9);
+		logger.info("Password Text Field display passed");
 	}
 
 	@SuppressWarnings("static-access")
