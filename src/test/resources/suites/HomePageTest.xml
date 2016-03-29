@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="LoginTest" parallel="false">
-
-	<test name="LoginTest">
+<suite name="HomePage" parallel="false">
+	<test name="HomePageTest">
 		<classes>
 			<class name="com.nrby.ui.login.HomePageTest" />
 		</classes>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="CreateRegion" parallel="false">
-	<test name="CreateRegionTest">
+<suite name="CreateRegionContainer" parallel="false">
+	<test name="CreateRegionContainerTest">
 		<classes>
-			<class name="com.nrby.ui.regions.CreateRegionTest" />
+			<class name="com.nrby.ui.regioncontainer.CreateRegionContainerTest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
