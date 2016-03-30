@@ -1,10 +1,20 @@
-INFO	2016-03-29 20:14:49,915	0	HomePageTest	[main]	Automation Nrby Started
-INFO	2016-03-29 20:15:07,177	17262	HomePageTest	[main]	Didn't receive confirmation instructions: text display passed
-INFO	2016-03-29 20:15:09,107	19192	HomePageTest	[main]	Remember me checkbox displayed passed
-INFO	2016-03-29 20:15:11,187	21272	HomePageTest	[main]	Label Email exists passed
-INFO	2016-03-29 20:15:12,842	22927	HomePageTest	[main]	Email Text Field display passed
-INFO	2016-03-29 20:15:14,706	24791	HomePageTest	[main]	Forgot your password: text display passed
-INFO	2016-03-29 20:15:16,745	26830	HomePageTest	[main]	Login Button displayed passed
-INFO	2016-03-29 20:15:18,126	28211	HomePageTest	[main]	Label Password exists passed
-INFO	2016-03-29 20:15:19,652	29737	HomePageTest	[main]	Password Text Field display passed
-INFO	2016-03-29 20:15:21,210	31295	HomePageTest	[main]	Label Remember me exists passed
+INFO	2016-03-30 18:55:48,752	0	HomePageTest	[main]	Automation Nrby Started
+INFO	2016-03-30 18:56:21,939	33187	HomePageTest	[main]	Didn't receive confirmation instructions: text display passed
+INFO	2016-03-30 18:56:23,396	34644	HomePageTest	[main]	Remember me checkbox displayed passed
+INFO	2016-03-30 18:56:24,865	36113	HomePageTest	[main]	Label Email exists passed
+INFO	2016-03-30 18:56:26,289	37537	HomePageTest	[main]	Email Text Field display passed
+INFO	2016-03-30 18:56:27,804	39052	HomePageTest	[main]	Forgot your password: text display passed
+INFO	2016-03-30 18:56:29,205	40453	HomePageTest	[main]	Login Button displayed passed
+INFO	2016-03-30 18:56:30,661	41909	HomePageTest	[main]	Label Password exists passed
+INFO	2016-03-30 18:56:32,082	43330	HomePageTest	[main]	Password Text Field display passed
+INFO	2016-03-30 18:56:33,593	44841	HomePageTest	[main]	Label Remember me exists passed
+INFO	2016-03-30 18:57:04,904	76152	LoginTest	[main]	Invalid Email Validation passed
+INFO	2016-03-30 18:57:09,179	80427	LoginTest	[main]	Invalid Email Validation passed
+INFO	2016-03-30 18:57:13,459	84707	LoginTest	[main]	Invalid Password Validation passed
+INFO	2016-03-30 18:57:17,678	88926	LoginTest	[main]	Invalid Password Validation passed
+INFO	2016-03-30 18:57:26,292	97540	LoginTest	[main]	Login functionality passed
+INFO	2016-03-30 18:57:36,829	108077	LoginTest	[main]	Signed in successfully message display passed
+INFO	2016-03-30 18:58:23,125	154373	CreateRegionTest	[main]	Zone creation passed
+INFO	2016-03-30 18:59:56,596	247844	CreateRegionContainerTest	[main]	Region Container creation passed
+INFO	2016-03-30 18:59:56,633	247881	CreateRegionContainerTest	[main]	New Folder button display passed
+INFO	2016-03-30 19:00:04,019	255267	CreateRegionContainerTest	[main]	Save button display passed
